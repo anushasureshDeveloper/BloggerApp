@@ -1,0 +1,23 @@
+<div class="container p-4 mt-4 d-flex justify-content-center align-items-center"
+  style="background-color: rgb(181, 231, 223);">
+  {{#if msg}}
+  <h6 style="color: crimson;">Please Login First</h6><br><br>
+  <h3><a href="/login">login?</a></h3>
+</div>
+{{/if}}
+{{#each data}}
+<div class="col-md-4">
+  <div class="card mt-3" style="width: 18rem;">
+    <div class="text-center mt-3">
+      <img src="{{this.image}}" alt="" height="250" width="250">
+    </div>
+    <div class="card-body">
+      <p>
+      <h2>{{this.title}}<br></h2>
+    </div>
+    <a href="/blog_view/{{this._id}}" class="btn btn-primary">Click Here</a>
+    <a href="/blog_delete/{{this._id}}" class="btn btn-danger">Delete</a>
+  </div>
+  <br>
+</div>
+{{/each}}

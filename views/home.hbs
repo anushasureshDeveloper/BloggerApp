@@ -1,0 +1,25 @@
+<body>
+  <div class="row">
+    {{#if all}}
+    {{#each all}}
+    <div class="col-md-3">
+      <div class="card mt-3" style="width: 18rem;">
+        <div class="text-center mt-3">
+        <img src="{{this.image}}" alt="" height="250" width="250">
+        </div>
+        <div class="card-body">
+          <p>
+          <h2>{{this.title}}<br></h2>
+          <h6>Published by <i>{{author.username}}<br></i></h6>
+          {{!-- <p>{{this.blogtext}}<br></p> --}}
+        </div>
+        <p class="card-text">
+        </p>
+        <a href="/blog_view/{{this._id}}" class="btn btn-primary">Click Here</a>
+      </div>
+      <br>
+    </div>
+    {{/each}}
+    {{/if}}
+  </div>
+</body>

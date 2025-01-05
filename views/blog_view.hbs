@@ -1,0 +1,84 @@
+
+
+<div class="container p-4 mt-4  d-flex justify-content-center align-items-center">
+    <div class="card mt-3" style="display: contents;">
+        <div class="text-center mt-3">
+            <img src="{{data.image}}" alt="" height="250" width="250">
+
+            {{!-- <button type="submit" class="btn btn-danger" style="font-size: xx-large;">♥</button> --}}
+        </div>
+        <div class="card-body">
+            <p>
+            <h2>{{data.title}}<br></h2>
+            <h6>likes {{data.likes.length}}</h6>
+            <h6>Published by <i>{{data.author.username}}<br></i></h6>
+            <p>{{data.blogtext}}<br></p>
+        </div>
+    </div>
+</div><br>
+
+{{!-- comment section --}}
+<div class=" container content-left">
+    <a class="btn btn-danger " style="font-size: xx-large;" href="/blog_like/{{data._id}}">♥ </a>
+</div>
+<p class="card-text">
+</p>
+<div class="container p-4 mt-4  d-flex justify-content-center align-items-center">
+    <div class="input-group mb-3">
+        <form action="/blog_view/{{data._id}}" method="post" enctype="application/x-www-form-urlencoded">
+            <div class="input-group-append">
+                <input type="text" class="form-control" placeholder="Add a comment..." aria-label="Recipient's username"
+                    aria-describedby="button-addon2" style="background-color: #fadebc;" name="comment">
+                <button class="btn btn-outline-secondary" type="submit" style="background-color: rgb(49, 180, 223);">➤
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{{#each cmt_data.AllComments}}
+<p>
+<div class="container " style="left: 10%; background-color: #f7eee0;">
+    <p><b>@{{this.author.username}}</b></p>
+    <p>{{this.comment}}</p>
+    <!-- Button trigger modal -->
+    <p id="commentId" hidden>{{this._id}}</p>
+    <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal"
+        style="background-color: #f7eee0; color: darkgrey;">
+        reply
+    </button>
+    <a class="btn" href="/cmt_like/:id" style="color: darkgrey;">Like</a><br>
+    <div class="container border border-primary">
+        {{#each replies}}
+        <p><b>{{this.author.username}}</b></p>
+        <p> {{this.replies}}</p>
+        {{/each}}
+    </div>
+</div>
+</p>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Reply Here...</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/reply/{{this._id}}" method="post" enctype="application/x-www-form-urlencoded">
+                <div class="modal-body">
+                    <input type="text" id="reply" name="reply">
+                    <input type="text" name="bId" value="{{data._id}}">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{{/each}}
+
+<!-- Modal -->

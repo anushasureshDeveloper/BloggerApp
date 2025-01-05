@@ -1,0 +1,25 @@
+<div class="container p-4 mt-4 bg-light d-flex justify-content-center align-items-center">
+    <div class="card w-40 p-5" style="background-color: beige;">
+        <form action="/blog_create" method="post" enctype="application/x-www-form-urlencoded">
+          {{!-- <img src="{{this.image}}" alt="" height="250" width="250"> --}}
+    
+              <div class="form-group">
+                <div class="form-group">
+                    <label for="title">Image</label>
+                    <input type="text" class="form-control" id="image" name="image">
+                </div>
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" id="title" name="title">
+                </div>
+
+                <label for="blogtext">Text </label>
+                <textarea class="form-control" id="blogtext" name="blogtext" rows="2"></textarea><br>
+                <div class="text-center form-group">
+                    <button type="submit" class="btn btn-success">Create</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div> 

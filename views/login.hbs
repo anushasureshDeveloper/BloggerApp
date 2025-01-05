@@ -1,0 +1,26 @@
+<div class="container mt-4 d-flex justify-content-center align-items-center">
+  <div class="card" style="background-color: rgb(224, 240, 235); width: 500px;">
+    <h5 class="text-center text-dark">LOGIN</h5>
+    <form action="/login" method="post" enctype="application/x-www-form-urlencoded">
+      <div class="form-group">
+        <label for="exampleInputEmail1" aria-placeholder="name@gmail.com">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1" aria-placeholder="john">User Name</label>
+        <input type="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+      </div>
+      <div class="text-center">
+      <button type="submit" class="btn btn-primary">login</button><br>
+      <a href="/signup" class="text-danger">Not a user yet ? Signup</a>
+      <p class="text-center text-danger">{{msg}}</p>
+      </div>
+      <br></form>
+      
+    </form>
+  </div>
+</div>
